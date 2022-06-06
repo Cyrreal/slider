@@ -14,5 +14,5 @@ body {
 }
 .img_sad {
   width: 250px;
-  border-radius: 50% 50% 0 50%;
+  border-radius: 50% 50% 5px 50%;
 }

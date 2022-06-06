@@ -33,7 +33,7 @@ export function useButtons(images, loading, userOnPage) {
       }, 5000);
       return () => clearInterval(slideAutoSwitch);
     }
-  }, [loading, slideIndex, images.length, userOnPage]);
+  }, [loading, slideIndex, userOnPage]);
 
   return {
     slideIndex: slideIndex,
