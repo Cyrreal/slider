@@ -2,11 +2,12 @@ import { Button } from "./Button";
 import { useFetch } from "../Hooks/useFetch";
 import { useButtons } from "../Hooks/useButtons";
 
-export function Slider() {
+export function Slider({ userOnPage }) {
   const { images, loading } = useFetch();
   const { slideIndex, showClickSlide, nextSlide, prevSlide } = useButtons(
     images,
-    loading
+    loading,
+    userOnPage
   );
 
   return (

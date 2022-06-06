@@ -1,9 +1,18 @@
 @import "./Components/Slider.css";
 
 body {
-  background-color: rgb(176, 214, 255);
+  background-color: rgb(252, 252, 252);
 }
 .containerSlider {
-  max-width: 500px;
+  max-width: 600px;
   margin: 50px auto;
+}
+.sad {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.img_sad {
+  width: 250px;
+  border-radius: 50% 50% 0 50%;
 }

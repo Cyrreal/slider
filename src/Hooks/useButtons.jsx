@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-export function useButtons(images, loading) {
+export function useButtons(images, loading, userOnPage) {
   const [slideIndex, setSlideIndex] = useState(1);
 
   const showClickSlide = (index) => {
@@ -21,16 +21,19 @@ export function useButtons(images, loading) {
       setSlideIndex(images.length);
     }
   };
+
   useEffect(() => {
-    const slideAutoSwitch = setInterval(() => {
-      if (slideIndex !== images.length) {
-        setSlideIndex(slideIndex + 1);
-      } else if (slideIndex === images.length) {
-        setSlideIndex(1);
-      }
-    }, 5000);
-    return () => clearInterval(slideAutoSwitch);
-  }, [loading, slideIndex]);
+    if (userOnPage === "visible") {
+      const slideAutoSwitch = setInterval(() => {
+        if (slideIndex !== images.length) {
+          setSlideIndex(slideIndex + 1);
+        } else if (slideIndex === images.length) {
+          setSlideIndex(1);
+        }
+      }, 5000);
+      return () => clearInterval(slideAutoSwitch);
+    }
+  }, [loading, slideIndex, images.length, userOnPage]);
 
   return {
     slideIndex: slideIndex,
